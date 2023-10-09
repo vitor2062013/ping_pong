@@ -5,6 +5,8 @@ let bola_img;
 let raqueteComputadorimg;
 let raqueteJogadorimg;
 let rede
+let bordaCima
+let bordaBaixo
 
 function preload() {
   bola_img=loadImage("bola.png");
@@ -15,7 +17,12 @@ function preload() {
 function setup() {
   createCanvas(1366, 619);
 
+  bordaCima=createSprite(683,0,1366,10)
+  bordaCima.visible=false;
 
+  bordaBaixo=createSprite(683,619,1366,10)
+  bordaBaixo.visible=false
+  
   raqueteJogador=createSprite(1330, 300,20,100);
   raqueteJogador.addImage(raqueteJogadorimg);
   raqueteJogador.scale=0.09;
@@ -38,7 +45,7 @@ function setup() {
   bola=createSprite(665,300,35,35);
   bola.addImage(bola_img);
   bola.scale=0.06;
-  bola.velocityX=5;
+  bola.velocityX=7;
   bola.velocityY=5;
 
   bola.debug=false
@@ -50,13 +57,13 @@ function setup() {
 function draw() {
    background("#3CB371");
 
-   //bola.bounceOff(topedge);
-
-   bola.bounceOff(edges.bottomEdge);
-
    bola.bounceOff(raqueteComputador);
 
    bola.bounceOff(raqueteJogador);
+
+   bola.bounceOff(bordaCima)
+
+   bola.bounceOff(bordaBaixo)
 
    if(keyDown("up")){
     raqueteJogador.y -=20;
