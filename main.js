@@ -18,7 +18,7 @@ function setup() {
   createCanvas(1366, 619);
 
   bordaCima=createSprite(683,0,1366,10)
-  bordaCima.visible=false;
+  bordaCima.visible=false
 
   bordaBaixo=createSprite(683,619,1366,10)
   bordaBaixo.visible=false
@@ -74,17 +74,25 @@ function draw() {
     raqueteJogador.y +=20;
    }
 
-//  if(keyDown("w")){
-//     raqueteComputador.y -=20;
-//    }
-//  if(keyDown("s")){
-//     raqueteComputador.y +=20;
-//    }
-raqueteComputador.y=bola.y;
+ if(keyDown("w")){
+    raqueteComputador.y -=20;
+   }
+ if(keyDown("s")){
+    raqueteComputador.y +=20;
+   }
+// raqueteComputador.y=bola.y;
 
-// if (raqueteJogador.y<0) {
-//   raqueteJogador=0
-// }
+if (raqueteJogador.y<50) {
+  raqueteJogador.y=50
+}
+if (raqueteJogador.y>570) {
+  raqueteJogador.y=570}
+
+  if (raqueteComputador.y<50) {
+    raqueteComputador.y=50
+  }
+  if (raqueteComputador.y>570) {
+    raqueteComputador.y=570}
 
   drawSprites();
 }
