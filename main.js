@@ -42,10 +42,12 @@ function setup() {
   rede=createSprite(665,309,30,619);
   rede.shapeColor="#8B4513";
 
+  console.log("test")
+
   bola=createSprite(665,300,35,35);
   bola.addImage(bola_img);
   bola.scale=0.06;
-  bola.velocityX=7;
+  bola.velocityX=12;
   bola.velocityY=5;
 
   bola.debug=false
@@ -72,12 +74,17 @@ function draw() {
     raqueteJogador.y +=20;
    }
 
- if(keyDown("w")){
-    raqueteComputador.y -=20;
-   }
- if(keyDown("s")){
-    raqueteComputador.y +=20;
-   }
+//  if(keyDown("w")){
+//     raqueteComputador.y -=20;
+//    }
+//  if(keyDown("s")){
+//     raqueteComputador.y +=20;
+//    }
+raqueteComputador.y=bola.y;
+
+// if (raqueteJogador.y<0) {
+//   raqueteJogador=0
+// }
 
   drawSprites();
 }
